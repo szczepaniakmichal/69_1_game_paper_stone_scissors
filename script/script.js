@@ -33,15 +33,14 @@ hands.forEach(hand => {
 // console.log(game.playerHand);
 
 const aiChoice = () => {
-    const aiChoise = Math.floor(Math.random() * 3);
-    game.aiHand = hands[aiChoise];
-    return game.aiHand.dataset.option;
+    return hands[Math.floor(Math.random() * 3)].dataset.option;
 };
 
 const startGame = () => {
     //(game.playerHand ? console.log(game.playerHand) : console.log('wybierz jedna z trzech opcji')) // test ternary operator
     if (game.playerHand) {
         game.aiHand = aiChoice();
+        console.log(game.aiHand);
     } else {
         console.log('wybierz jedna z trzech opcji');
     }
