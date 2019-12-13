@@ -1,0 +1,25 @@
+{
+  "name": "_start_new_project",
+  "version": "1.0.0",
+  "description": "_start_new_project",
+  "main": "script.js",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.0.2"
+  },
+  "scripts ": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szczepaniakmichal/_start_new_project.git"
+  },
+  "author": "szczepaniakmichal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szczepaniakmichal/_start_new_project/issues"
+  },
+  "homepage": "https://github.com/szczepaniakmichal/_start_new_project#readme"
+}
