@@ -12,7 +12,6 @@ const game = {
 };
 
 const hands = [...document.querySelectorAll('.select img')];  //operator rest...
-console.log(hands);
 
 const handSelection = (e) => {
     hands.forEach(hand => {
@@ -24,6 +23,7 @@ const handSelection = (e) => {
     // console.log(game.playerHand);
     current.style.opacity = '1';
     current.style.boxShadow = '0 0 0 5px red';
+    document.querySelector('[data-option="alert"]').textContent = '';
 };
 
 hands.forEach(hand => {
@@ -85,7 +85,7 @@ const startGame = () => {
     game.aiHand = aiChoice();
     const gameResult = checkResult(game.playerHand, game.aiHand);
     publishResult(game.playerHand, game.aiHand, gameResult);
-    resetDate();
+    setTimeout(resetDate, 1500);
 };
 
 document.querySelector('button.start').addEventListener('click', startGame);
