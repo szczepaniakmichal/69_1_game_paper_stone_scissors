@@ -68,14 +68,24 @@ const publishResult = (player, ai, result) => {
   }
 };
 
+const  resetDate = () => {
+    game.playerHand = '';
+    game.aiHand = '';
+    hands.forEach(hand => {
+        hand.style.opacity = '.3';
+        hand.style.boxShadow = '';
+    })
+};
+
 const startGame = () => {
     //(game.playerHand ? console.log(game.playerHand) : console.log('wybierz jedna z trzech opcji')) // test ternary operator
     if (!game.playerHand) {
-        return console.log('wybierz jedna z trzech opcji');
+        return document.querySelector('[data-option="alert"]').textContent = 'wybierz jedna z trzech opcji';
     }
     game.aiHand = aiChoice();
     const gameResult = checkResult(game.playerHand, game.aiHand);
     publishResult(game.playerHand, game.aiHand, gameResult);
+    resetDate();
 };
 
 document.querySelector('button.start').addEventListener('click', startGame);

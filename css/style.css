@@ -85,3 +85,10 @@ img {
   opacity: 0.3;
 }
 
+[data-option="alert"] {
+  height: 20px;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
