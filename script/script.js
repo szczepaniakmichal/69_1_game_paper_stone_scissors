@@ -85,7 +85,7 @@ const startGame = () => {
     game.aiHand = aiChoice();
     const gameResult = checkResult(game.playerHand, game.aiHand);
     publishResult(game.playerHand, game.aiHand, gameResult);
-    resetDate();
+    setTimeout(resetDate, 1500);
 };
 
 document.querySelector('button.start').addEventListener('click', startGame);
