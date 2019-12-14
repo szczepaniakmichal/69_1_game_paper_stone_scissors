@@ -27,7 +27,7 @@ const handSelection = (e) => {
 };
 
 hands.forEach(hand => {
-   hand.addEventListener('click', handSelection);
+    hand.addEventListener('click', handSelection);
 });
 
 // console.log(game.playerHand);
@@ -36,14 +36,29 @@ const aiChoice = () => {
     return hands[Math.floor(Math.random() * 3)].dataset.option;
 };
 
-const startGame = () => {
-    //(game.playerHand ? console.log(game.playerHand) : console.log('wybierz jedna z trzech opcji')) // test ternary operator
-    if (game.playerHand) {
-        game.aiHand = aiChoice();
-        console.log(game.aiHand);
+const checkResult = (player, ai) => {
+    if (player === ai) {
+        return 'draw';
+    } else if   ((player === 'papier' && ai === 'kamień') ||
+                (player === 'kamień' && ai === 'nożyczki') ||
+                (player === 'nożyczki' && ai === 'papier')) {
+        return 'you win';
     } else {
-        console.log('wybierz jedna z trzech opcji');
+        return 'you lost'
     }
 };
 
-document.querySelector('button.start').addEventListener('click', startGame);;
+const startGame = () => {
+    //(game.playerHand ? console.log(game.playerHand) : console.log('wybierz jedna z trzech opcji')) // test ternary operator
+    if (!game.playerHand) {
+        return console.log('wybierz jedna z trzech opcji');
+    }
+    game.aiHand = aiChoice();
+    console.log(game.playerHand);
+    console.log(game.aiHand);
+    const gameResult = checkResult(game.playerHand, game.aiHand);
+    console.log(gameResult);
+};
+
+document.querySelector('button.start').addEventListener('click', startGame);
+;
